@@ -1,0 +1,11 @@
+[
+  { "input": "oʻzbek", "expected": "özbek", "note": "U+02BB official" },
+  { "input": "oʼzbek", "expected": "özbek", "note": "U+02BC" },
+  { "input": "o’zbek", "expected": "özbek", "note": "U+2019" },
+  { "input": "o‘zbek", "expected": "özbek", "note": "U+2018 (lex.uz style)" },
+  { "input": "o`zbek", "expected": "özbek", "note": "U+0060 grave" },
+  { "input": "o´zbek", "expected": "özbek", "note": "U+00B4 acute" },
+  { "input": "gʻisht", "expected": "ğişt", "note": "U+02BB with gʻ and sh" },
+  { "input": "G‘arb", "expected": "Ğarb", "note": "U+2018 capital" },
+  { "input": "to‘g‘ri", "expected": "töğri", "note": "lex.uz style word" }
+]

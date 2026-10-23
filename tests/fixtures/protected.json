@@ -1,0 +1,8 @@
+[
+  { "input": "https://o'zbek.uz/shahar/chiroyli", "expected": "https://o'zbek.uz/shahar/chiroyli", "note": "https URL" },
+  { "input": "http://www.toshkent.uz", "expected": "http://www.toshkent.uz", "note": "http URL" },
+  { "input": "www.shahar.uz/ch", "expected": "www.shahar.uz/ch", "note": "www without scheme" },
+  { "input": "shahar@toshkent.uz", "expected": "shahar@toshkent.uz", "note": "e-mail" },
+  { "input": "Saytimiz: https://sh.uz/ch shahar", "expected": "Saytimiz: https://sh.uz/ch şahar", "note": "URL inside sentence" },
+  { "input": "Yozing: shahar@mail.uz yoki qo'ng'iroq qiling", "expected": "Yozing: shahar@mail.uz yoki qönğiroq qiling", "note": "e-mail inside sentence; ng' is n + g' → nğ" }
+]

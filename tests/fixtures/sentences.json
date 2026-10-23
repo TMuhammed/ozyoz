@@ -1,0 +1,37 @@
+[
+  {
+    "input": "O'zbekiston Respublikasining davlat tili o'zbek tilidir.",
+    "expected": "Özbekiston Respublikasining davlat tili özbek tilidir.",
+    "note": "sentence with punctuation"
+  },
+  {
+    "input": "Toshkent shahri — go'zal shahar!",
+    "expected": "Toşkent şahri — gözal şahar!",
+    "note": "dash and exclamation"
+  },
+  {
+    "input": "Bugun  ikki   bo'sh\tjoy\nbor.",
+    "expected": "Bugun  ikki   böş\tjoy\nbor.",
+    "note": "whitespace preserved exactly"
+  },
+  {
+    "input": "\"Choy ichamizmi?\" — dedi u.",
+    "expected": "\"Çoy içamizmi?\" — dedi u.",
+    "note": "double quotes untouched"
+  },
+  {
+    "input": "sh, ch. sh! ch?",
+    "expected": "ş, ç. ş! ç?",
+    "note": "digraphs before punctuation"
+  },
+  {
+    "input": "Салом, дунё! Привет мир.",
+    "expected": "Салом, дунё! Привет мир.",
+    "note": "Cyrillic untouched"
+  },
+  {
+    "input": "123 + 456 = 579; %$#@",
+    "expected": "123 + 456 = 579; %$#@",
+    "note": "digits and symbols untouched"
+  }
+]
