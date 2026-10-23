@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "UzAlif",
   "version": "0.1.0",
-  "description": "Yangi oʻzbek lotin alifbosiga avtomatik oʻtkazish: yozganingizda sh→ş, ch→ç, oʻ→ö, gʻ→ğ. Hammasi lokal, hech narsa serverga yuborilmaydi.",
+  "description": "Yozganingizda yangi oʻzbek lotin alifbosiga oʻtkazadi: sh→ş, ch→ç, oʻ→ö, gʻ→ğ. Hammasi lokal, hech narsa yuborilmaydi.",
   "icons": {
     "16": "src/assets/icons/icon16.png",
     "32": "src/assets/icons/icon32.png",
@@ -14,13 +14,17 @@
     "default_title": "UzAlif"
   },
   "options_page": "src/options/index.html",
+  "omnibox": {
+    "keyword": "uz"
+  },
   "background": {
     "service_worker": "src/browser/background.ts",
     "type": "module"
   },
   "permissions": [
     "storage",
-    "activeTab"
+    "activeTab",
+    "search"
   ],
   "content_scripts": [
     {

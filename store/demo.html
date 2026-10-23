@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<title>UzAlif demo</title>
+<style>
+  body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f3f4f6; color: #111827; }
+  .wrap { max-width: 900px; margin: 70px auto; padding: 0 24px; }
+  h1 { font-size: 34px; margin: 0 0 6px; }
+  .sub { color: #6b7280; font-size: 18px; margin-bottom: 28px; }
+  .card { background: #fff; border-radius: 14px; box-shadow: 0 10px 40px rgba(0,0,0,.08); padding: 24px; }
+  label { display: block; font-weight: 600; margin-bottom: 10px; }
+  textarea { width: 100%; box-sizing: border-box; min-height: 180px; font-family: inherit; font-size: 22px; line-height: 1.5; padding: 16px; border: 2px solid #0f766e; border-radius: 10px; resize: none; outline: none; }
+  .hint { margin-top: 18px; color: #6b7280; font-size: 16px; }
+  .chips { display: flex; gap: 10px; margin-top: 18px; flex-wrap: wrap; }
+  .chip { background: #ecfdf5; color: #065f46; border-radius: 999px; padding: 6px 14px; font-size: 16px; font-weight: 600; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Eski usulda yozing — yangi alifboda chiqadi</h1>
+    <div class="sub">UzAlif matnni yozayotganingizda avtomatik oʻtkazadi. Hammasi brauzer ichida.</div>
+    <div class="card">
+      <label for="demo">Izoh qoldiring</label>
+      <textarea id="demo" placeholder="Yozib koʻring: o'zbek, shahar, chiroyli, to'g'ri"></textarea>
+      <div class="chips"><span class="chip">sh → ş</span><span class="chip">ch → ç</span><span class="chip">oʻ → ö</span><span class="chip">gʻ → ğ</span></div>
+      <div class="hint">Ctrl+Z eski yozuvni qaytaradi. Parol va karta maydonlari hech qachon oʻzgartirilmaydi.</div>
+    </div>
+  </div>
+</body>
+</html>
