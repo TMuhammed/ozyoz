@@ -2,6 +2,7 @@ import { useEffect, useState, type FormEvent } from 'react';
 import { RULESET } from '@/core';
 import { DEFAULT_SETTINGS, siteKey, type AmbiguousMode, type Settings } from '@/shared/settings';
 import { loadSettings, onSettingsChanged, saveSettings, updateSettings } from '@/shared/storage';
+import { Support } from './Support';
 
 export function Options() {
   const [s, setS] = useState<Settings>(DEFAULT_SETTINGS);
@@ -102,6 +103,8 @@ export function Options() {
         </table>
         <span className="muted">Yozilgan matn hech qayerga yuborilmaydi; barcha ishlov brauzer ichida.</span>
       </section>
+
+      <Support />
 
       <section className="card">
         <h2>Tiklash</h2>

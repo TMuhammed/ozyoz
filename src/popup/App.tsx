@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { RULESET } from '@/core';
 import { DEFAULT_SETTINGS, isActiveFor, isPaused, isSiteDisabled, siteKey, type Settings } from '@/shared/settings';
 import { loadSettings, onSettingsChanged, updateSettings } from '@/shared/storage';
+import { SUPPORT } from '@/shared/support';
 
 async function currentHostname(): Promise<string> {
   try {
@@ -107,7 +108,15 @@ export function App() {
 
       <footer className="footer">
         <span>Alifbo: {RULESET.source.number} · v{RULESET.version}</span>
-        <a href={RULESET.source.url} target="_blank" rel="noreferrer">lex.uz</a>
+        <span>
+          {SUPPORT.donateUrl && (
+            <>
+              <a href={SUPPORT.donateUrl} target="_blank" rel="noreferrer">Qoʻllab-quvvatlash</a>
+              {' · '}
+            </>
+          )}
+          <a href={RULESET.source.url} target="_blank" rel="noreferrer">lex.uz</a>
+        </span>
       </footer>
     </main>
   );
