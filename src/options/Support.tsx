@@ -17,15 +17,15 @@ export function Support() {
 
   return (
     <section className="card">
-      <h2>Dasturchini qoʻllab-quvvatlash</h2>
+      <h2>Dasturçini qöllab-quvvatlaş</h2>
       <span className="muted">
-        UzAlif bepul va reklamasiz. Agar foydali boʻlsa, dasturchini qoʻllab-quvvatlashingiz mumkin — bu loyihani
-        rivojlantirishga yordam beradi.
+        Özyoz bepul va reklamasiz. Agar foydali bölsa, dasturçini qöllab-quvvatlaşingiz mumkin — bu loyihani
+        rivojlantirişga yordam beradi.
       </span>
       <div className="actions">
         {SUPPORT.donateUrl && (
           <a className="button" href={SUPPORT.donateUrl} target="_blank" rel="noreferrer">
-            Qoʻllab-quvvatlash
+            Qöllab-quvvatlaş
           </a>
         )}
         {SUPPORT.telegramUrl && (
@@ -43,7 +43,7 @@ export function Support() {
         <div className="cardnum">
           <span className="muted">{SUPPORT.cardLabel || 'Karta'}:</span>
           <code aria-label="Karta raqami">{formatCard(SUPPORT.cardNumber)}</code>
-          <button type="button" onClick={() => void copy()}>{copied ? 'Nusxalandi ✓' : 'Nusxalash'}</button>
+          <button type="button" onClick={() => void copy()}>{copied ? 'Nusxalandi ✓' : 'Nusxalaş'}</button>
         </div>
       )}
     </section>

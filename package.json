@@ -1,7 +1,7 @@
 {
-  "name": "uzalif",
+  "name": "ozyoz",
   "version": "0.1.0",
-  "description": "UzAlif — automatic Uzbek Latin alphabet conversion while typing",
+  "description": "\u00d6zyoz \u2014 automatic conversion to the new Uzbek Latin alphabet while typing",
   "main": "index.js",
   "scripts": {
     "test": "vitest run",

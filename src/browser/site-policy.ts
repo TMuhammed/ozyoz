@@ -1,5 +1,5 @@
 /**
- * Decides which editable elements UzAlif may touch. Pure DOM predicates, no state.
+ * Decides which editable elements Özyoz may touch. Pure DOM predicates, no state.
  */
 
 export type TextField = HTMLInputElement | HTMLTextAreaElement;

@@ -51,13 +51,13 @@ export function App() {
   const resume = () => patch({ pausedUntil: null });
 
   const statusText = !settings.enabled
-    ? 'Oʻchirilgan'
+    ? 'Öçirilgan'
     : paused
       ? `Pauza: ${Math.max(1, Math.ceil(((settings.pausedUntil ?? 0) - now) / 60_000))} daqiqa`
       : host === ''
-        ? 'Bu sahifada ishlamaydi'
+        ? 'Bu sahifada işlamaydi'
         : siteOff
-          ? 'Bu saytda oʻchirilgan'
+          ? 'Bu saytda öçirilgan'
           : 'Faol';
 
   return (
@@ -65,18 +65,18 @@ export function App() {
       <header className="header">
         <div className="logo" aria-hidden="true">Ö</div>
         <div>
-          <div className="title">UzAlif</div>
+          <div className="title">Özyoz</div>
           <div className="subtitle">sh→ş · ch→ç · oʻ→ö · gʻ→ğ</div>
         </div>
       </header>
 
       <div className="row">
         <div className="row-label">
-          <span>Avtomatik oʻtkazish</span>
+          <span>Avtomatik ötkaziş</span>
           <small className="status"><span className={`dot${active ? ' on' : ''}`} />{statusText}</small>
         </div>
         <label className="switch">
-          <input type="checkbox" checked={settings.enabled} onChange={toggleEnabled} aria-label="Avtomatik oʻtkazishni yoqish" />
+          <input type="checkbox" checked={settings.enabled} onChange={toggleEnabled} aria-label="Avtomatik ötkazişni yoqiş" />
           <span className="slider" />
         </label>
       </div>
@@ -84,10 +84,10 @@ export function App() {
       <div className="row">
         <div className="row-label">
           <span>{host ? host : 'Sayt aniqlanmadi'}</span>
-          <small>Shu saytda</small>
+          <small>Şu saytda</small>
         </div>
         <label className="switch">
-          <input type="checkbox" checked={!siteOff} disabled={!host} onChange={toggleSite} aria-label="Shu saytda yoqish" />
+          <input type="checkbox" checked={!siteOff} disabled={!host} onChange={toggleSite} aria-label="Şu saytda yoqiş" />
           <span className="slider" />
         </label>
       </div>
@@ -96,7 +96,7 @@ export function App() {
 
       <div className="actions">
         {paused ? (
-          <button type="button" onClick={resume}>Davom ettirish</button>
+          <button type="button" onClick={resume}>Davom ettiriş</button>
         ) : (
           <>
             <button type="button" onClick={() => pause(15)}>15 daqiqa pauza</button>
@@ -111,7 +111,7 @@ export function App() {
         <span>
           {SUPPORT.donateUrl && (
             <>
-              <a href={SUPPORT.donateUrl} target="_blank" rel="noreferrer">Qoʻllab-quvvatlash</a>
+              <a href={SUPPORT.donateUrl} target="_blank" rel="noreferrer">Qöllab-quvvatlaş</a>
               {' · '}
             </>
           )}

@@ -1,6 +1,6 @@
-# UzAlif
+# Özyoz
 
-Browser extension that converts Uzbek Latin text from the 1995 spelling to the
+Özyoz («öz» — own, «yoz» — write) is a browser extension that converts Uzbek Latin text from the 1995 spelling to the
 2026 alphabet **while you type**: `sh→ş`, `ch→ç`, `oʻ→ö`, `gʻ→ğ`.
 Everything runs locally in the page; no text ever leaves the browser.
 
@@ -21,7 +21,7 @@ npm run build        # produces dist/
 1. Open `chrome://extensions` (Edge: `edge://extensions`, Yandex: `browser://extensions`).
 2. Enable **Developer mode**.
 3. Click **Load unpacked** and choose the `dist/` folder.
-4. Click the UzAlif icon in the toolbar to toggle conversion, pause it, or
+4. Click the Özyoz icon in the toolbar to toggle conversion, pause it, or
    disable it for the current site. Settings live under **Sozlamalar**.
 
 To rebuild after changes run `npm run build` again and press the reload icon

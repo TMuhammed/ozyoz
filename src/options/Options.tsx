@@ -38,30 +38,30 @@ export function Options() {
 
   return (
     <div className="page">
-      <h1>UzAlif — Sozlamalar</h1>
+      <h1>Özyoz — Sozlamalar</h1>
 
       <section className="card">
-        <h2>Oʻtkazish</h2>
+        <h2>Ötkaziş</h2>
         <div className="field">
           <input id="enabled" type="checkbox" checked={s.enabled} onChange={(e) => patch({ enabled: e.target.checked })} />
-          <label htmlFor="enabled">Avtomatik oʻtkazish yoqilgan<small>Yozayotganingizda sh→ş, ch→ç, oʻ→ö, gʻ→ğ.</small></label>
+          <label htmlFor="enabled">Avtomatik ötkaziş yoqilgan<small>Yozayotganingizda sh→ş, ch→ç, oʻ→ö, gʻ→ğ.</small></label>
         </div>
         <div className="field">
           <input id="paste" type="checkbox" checked={s.convertPaste} onChange={(e) => patch({ convertPaste: e.target.checked })} />
-          <label htmlFor="paste">Qoʻyilgan (paste) matnni ham oʻtkazish<small>Faqat oddiy matn; URL va e-mail manzillar oʻzgarmaydi.</small></label>
+          <label htmlFor="paste">Qöyilgan (paste) matnni ham ötkaziş<small>Faqat oddiy matn; URL va e-mail manzillar özgarmaydi.</small></label>
         </div>
         <div className="field">
           <input id="apos" type="checkbox" checked={s.normalizeApostrophes} onChange={(e) => patch({ normalizeApostrophes: e.target.checked })} />
-          <label htmlFor="apos">Tutuq belgisini toʻgʻrilash (ʼ, U+02BC)<small>maʼno, sanʼat kabi soʻzlardagi apostrofni rasmiy belgiga almashtiradi. Inglizcha matn yozsangiz (don't) oʻchirib qoʻying.</small></label>
+          <label htmlFor="apos">Tutuq belgisini töğrilaş (ʼ, U+02BC)<small>maʼno, sanʼat kabi sözlardagi apostrofni rasmiy belgiga almaştiradi. Ingliz tilida yozsangiz (don't) öçirib qöying.</small></label>
         </div>
       </section>
 
       <section className="card">
-        <h2>Qachon oʻtkazish</h2>
+        <h2>Qaçon ötkaziş</h2>
         {(
           [
-            ['immediate', 'Darhol', 'sh yozilishi bilan ş ga aylanadi. Tavsiya etiladi.'],
-            ['wordBoundary', 'Soʻz tugagach', 'Boʻsh joy yoki tinish belgisi qoʻyilgandan keyin butun soʻz oʻtkaziladi.'],
+            ['immediate', 'Darhol', 'sh yozilişi bilan ş ga aylanadi. Tavsiya etiladi.'],
+            ['wordBoundary', 'Söz tugagaç', 'Böş joy yoki tiniş belgisi qöyilgandan keyin butun söz ötkaziladi.'],
           ] as [AmbiguousMode, string, string][]
         ).map(([value, label, hint]) => (
           <div className="field" key={value}>
@@ -72,21 +72,21 @@ export function Options() {
       </section>
 
       <section className="card">
-        <h2>Oʻchirilgan saytlar</h2>
+        <h2>Öçirilgan saytlar</h2>
         <div className="sites">
-          {s.disabledSites.length === 0 && <span className="muted">Roʻyxat boʻsh. Popup orqali yoki quyida sayt qoʻshing.</span>}
+          {s.disabledSites.length === 0 && <span className="muted">Röyxat böş. Popup orqali yoki quyida sayt qöşing.</span>}
           {s.disabledSites.map((d) => (
             <div className="site" key={d}>
               <span>{d}</span>
-              <button type="button" onClick={() => patch({ disabledSites: s.disabledSites.filter((x) => x !== d) })} aria-label={`${d} ni roʻyxatdan olib tashlash`}>
-                Olib tashlash
+              <button type="button" onClick={() => patch({ disabledSites: s.disabledSites.filter((x) => x !== d) })} aria-label={`${d} ni röyxatdan olib taşlaş`}>
+                Olib taşlaş
               </button>
             </div>
           ))}
         </div>
         <form className="add" onSubmit={addSite}>
           <input value={newSite} onChange={(e) => setNewSite(e.target.value)} placeholder="masalan, mail.google.com" aria-label="Sayt manzili" />
-          <button type="submit">Qoʻshish</button>
+          <button type="submit">Qöşiş</button>
         </form>
       </section>
 
@@ -95,21 +95,21 @@ export function Options() {
         <table>
           <tbody>
             <tr><td>Qonun</td><td>{RULESET.source.number}, {RULESET.source.signedOn}</td></tr>
-            <tr><td>Kuchga kiradi</td><td>{RULESET.source.effectiveOn}</td></tr>
+            <tr><td>Kuçga kiradi</td><td>{RULESET.source.effectiveOn}</td></tr>
             <tr><td>Qoidalar versiyasi</td><td>{RULESET.version}</td></tr>
             <tr><td>Manba</td><td><a href={RULESET.source.url} target="_blank" rel="noreferrer">{RULESET.source.url}</a></td></tr>
             <tr><td>Harflar</td><td>{RULESET.alphabet.join(' ')} ʼ</td></tr>
           </tbody>
         </table>
-        <span className="muted">Yozilgan matn hech qayerga yuborilmaydi; barcha ishlov brauzer ichida.</span>
+        <span className="muted">Yozilgan matn heç qayerga yuborilmaydi; barcha işlov brauzer içida.</span>
       </section>
 
       <Support />
 
       <section className="card">
-        <h2>Tiklash</h2>
+        <h2>Tiklaş</h2>
         <div>
-          <button type="button" className="danger" onClick={reset}>Standart sozlamalarni tiklash</button>
+          <button type="button" className="danger" onClick={reset}>Standart sozlamalarni tiklaş</button>
         </div>
       </section>
     </div>

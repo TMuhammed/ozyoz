@@ -1,4 +1,4 @@
-# UzAlif ruleset — version 2026.10.21
+# Özyoz ruleset — version 2026.10.21
 
 This document records the authoritative source for the conversion rules and every
 mapping the engine applies. Every rule here has a regression test in

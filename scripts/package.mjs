@@ -8,7 +8,7 @@ const dist = path.join(root, 'dist');
 const manifest = JSON.parse(fs.readFileSync(path.join(dist, 'manifest.json'), 'utf8'));
 const out = path.join(root, 'release');
 fs.mkdirSync(out, { recursive: true });
-const zip = path.join(out, `uzalif-${manifest.version}.zip`);
+const zip = path.join(out, `ozyoz-${manifest.version}.zip`);
 fs.rmSync(zip, { force: true });
 execFileSync('zip', ['-r', '-X', '-q', zip, '.'], { cwd: dist, stdio: 'inherit' });
 const size = (fs.statSync(zip).size / 1024).toFixed(1);

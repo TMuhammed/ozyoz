@@ -1,9 +1,9 @@
-# Store listing — UzAlif 0.1.0
+# Store listing — Özyoz 0.1.0
 
 Use the same package for all three stores. Build it with:
 
 ```bash
-npm run package      # → release/uzalif-0.1.0.zip
+npm run package      # → release/ozyoz-0.1.0.zip
 node scripts/screenshots.mjs   # → store/screenshots/*.png (1280×800)
 ```
 
@@ -17,33 +17,35 @@ node scripts/screenshots.mjs   # → store/screenshots/*.png (1280×800)
 
 ## Listing text
 
-**Name:** UzAlif
+**Name:** Özyoz — yangi özbek alifbosi
 
 **Short description (≤132 chars, matches manifest):**
-Yozganingizda yangi oʻzbek lotin alifbosiga oʻtkazadi: sh→ş, ch→ç, oʻ→ö, gʻ→ğ. Hammasi lokal, hech narsa yuborilmaydi.
+Yozganingizda yangi özbek lotin alifbosiga ötkazadi: sh→ş, ch→ç, oʻ→ö, gʻ→ğ. Hammasi lokal, heç narsa yuborilmaydi.
 
 **Detailed description (uz):**
 
-UzAlif — eski usulda yozasiz, yangi alifboda chiqadi.
+Özyoz — eski usulda yozasiz, yangi alifboda çiqadi.
 
-2026-yil 21-oktabrda imzolangan O‘RQ-1184-son Qonun bilan oʻzbek lotin alifbosi yangilandi: Sh → Ş, Ch → Ç, Oʻ → Ö, Gʻ → Ğ. UzAlif brauzerdagi istalgan matn maydonida (izohlar, xatlar, chatlar, formalar) yozayotganingizda harflarni avtomatik almashtiradi. Odatdagidek yozishda davom etasiz.
+2026-yil 21-oktabrda imzolangan O‘RQ-1184-son Qonun bilan özbek lotin alifbosi yangilandi: Sh → Ş, Ch → Ç, Oʻ → Ö, Gʻ → Ğ. Özyoz brauzerdagi istalgan matn maydonida (izohlar, xatlar, çatlar, formalar) yozayotganingizda harflarni avtomatik almaştiradi. Odatdagidek yozişda davom etasiz.
 
 Imkoniyatlar:
-• Yozish paytida avtomatik oʻtkazish — faqat hozir yozilayotgan soʻz oʻzgaradi
+• Yoziş paytida avtomatik ötkaziş — faqat hozir yozilayotgan söz özgaradi
 • Ctrl+Z eski yozuvni qaytaradi
-• Qoʻyilgan (paste) matnni ham oʻtkazadi; URL va e-mail manzillarga tegmaydi
-• Bir tugma bilan oʻchirish, 15 daqiqa / 1 soatga pauza, saytlar boʻyicha oʻchirish
-• Parol, karta va boshqa maxfiy maydonlar hech qachon oʻzgartirilmaydi
-• Manzil qatorida «uz» yozib, soʻng matn yozing — yangi alifbodagi soʻrov bilan qidiradi
-• Hech narsa serverga yuborilmaydi — barcha ishlov brauzer ichida
+• Qöyilgan (paste) matnni ham ötkazadi; URL va e-mail manzillarga tegmaydi
+• Bir tugma bilan öçiriş, 15 daqiqa / 1 soatga pauza, saytlar böyiça öçiriş
+• Parol, karta va boşqa maxfiy maydonlar heç qaçon özgartirilmaydi
+• Manzil qatorida «uz» yozib, söng matn yozing — yangi alifbodagi söröv bilan qidiradi
+• Heç narsa serverga yuborilmaydi — barça işlov brauzer içida
 
-Yangi alifbo 2027-yil 22-apreldan kuchga kiradi. Qoidalar rasmiy matn asosida tuzilgan: https://lex.uz/uz/docs/8548754
+Yangi alifbo 2027-yil 22-apreldan kuçga kiradi. Qoidalar rasmiy matn asosida tuzilgan: https://lex.uz/uz/docs/8548754
+
+Kalit soʻzlar (qidiruv uchun): o'zbek alifbosi, yangi alifbo, lotin alifbosi, konvertor, Ö Ğ Ş Ç, oʻzbek tili.
 
 **Detailed description (ru):**
 
-UzAlif — пишете по-старому, получаете новый алфавит.
+Özyoz — пишете по-старому, получаете новый алфавит.
 
-Законом O‘RQ-1184 от 21 октября 2026 года обновлён узбекский латинский алфавит: Sh → Ş, Ch → Ç, Oʻ → Ö, Gʻ → Ğ. UzAlif автоматически заменяет буквы, пока вы печатаете в любом текстовом поле браузера. Печатать можно как привыкли.
+Законом O‘RQ-1184 от 21 октября 2026 года обновлён узбекский латинский алфавит: Sh → Ş, Ch → Ç, Oʻ → Ö, Gʻ → Ğ. Özyoz автоматически заменяет буквы, пока вы печатаете в любом текстовом поле браузера. Печатать можно как привыкли.
 
 • Автоматическая конвертация при наборе, меняется только текущее слово
 • Ctrl+Z возвращает старое написание

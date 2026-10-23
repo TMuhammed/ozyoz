@@ -21,13 +21,13 @@ function converted(text: string): string {
   return convertText(text.trim(), { normalizeApostrophes: false, protectUrls: true }).text;
 }
 
-chrome.omnibox.setDefaultSuggestion({ description: 'UzAlif: yangi alifboda qidirish — matn yozing' });
+chrome.omnibox.setDefaultSuggestion({ description: 'Özyoz: yangi alifboda qidiriş — matn yozing' });
 
 chrome.omnibox.onInputChanged.addListener((text, suggest) => {
   const out = converted(text);
   if (!out) return;
-  chrome.omnibox.setDefaultSuggestion({ description: `${escapeXml(out)} <dim>— qidirish</dim>` });
-  suggest([{ content: out, description: `<match>${escapeXml(out)}</match> <dim>— UzAlif</dim>` }]);
+  chrome.omnibox.setDefaultSuggestion({ description: `${escapeXml(out)} <dim>— qidiriş</dim>` });
+  suggest([{ content: out, description: `<match>${escapeXml(out)}</match> <dim>— Özyoz</dim>` }]);
 });
 
 chrome.omnibox.onInputEntered.addListener((text, disposition) => {
