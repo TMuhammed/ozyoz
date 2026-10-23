@@ -8,7 +8,9 @@
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
     "build": "vite build",
-    "dev": "vite"
+    "dev": "vite",
+    "test:e2e": "playwright test",
+    "test:all": "npm run test && npm run build && npm run test:e2e"
   },
   "keywords": [],
   "author": "",
@@ -17,11 +19,13 @@
   "private": "true",
   "devDependencies": {
     "@crxjs/vite-plugin": "^2.7.1",
+    "@playwright/test": "^1.64.1",
     "@types/chrome": "^0.3.6",
     "@types/node": "^26.6.5",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^4.7.0",
+    "jsdom": "^26.1.0",
     "typescript": "^5.9.3",
     "vite": "^6.4.5",
     "vitest": "^3.2.7"

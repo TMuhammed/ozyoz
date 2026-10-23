@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="uz">
+<head><meta charset="utf-8"><title>UzAlif test page</title></head>
+<body>
+  <h1>UzAlif fixtures</h1>
+  <input id="text" type="text" />
+  <input id="search" type="search" />
+  <input id="untyped" />
+  <textarea id="textarea"></textarea>
+  <input id="password" type="password" />
+  <input id="email" type="email" />
+  <input id="card" type="text" name="cardNumber" />
+  <input id="cc" type="text" autocomplete="cc-number" />
+  <input id="pin" type="text" inputmode="numeric" />
+  <div data-uzalif="off"><input id="optout" type="text" /></div>
+  <div id="editable" contenteditable="true" style="border:1px solid #999;min-height:2em"></div>
+  <div id="editable-rich" contenteditable="true" style="border:1px solid #999;min-height:2em"><p>Salom <b>dunyo</b></p></div>
+  <div id="host"></div>
+  <input id="react" type="text" />
+  <div id="react-mirror"></div>
+  <script>
+    // Open shadow root with a textarea inside.
+    const sr = document.getElementById('host').attachShadow({ mode: 'open' });
+    sr.innerHTML = '<textarea id="shadow-textarea"></textarea>';
+    // Minimal "controlled input" imitation: mirrors value on input events.
+    const r = document.getElementById('react');
+    r.addEventListener('input', () => { document.getElementById('react-mirror').textContent = r.value; });
+  </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+:root {
+  color-scheme: light dark;
+  --bg: #f9fafb; --card: #ffffff; --fg: #111827; --muted: #6b7280; --accent: #0f766e; --border: #e5e7eb;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 15px;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #0b1220; --card: #111827; --fg: #f9fafb; --muted: #9ca3af; --accent: #2dd4bf; --border: #374151; }
+}
+body { margin: 0; background: var(--bg); color: var(--fg); }
+.page { max-width: 640px; margin: 0 auto; padding: 32px 16px 48px; display: flex; flex-direction: column; gap: 20px; }
+h1 { font-size: 22px; margin: 0; }
+h2 { font-size: 15px; margin: 0 0 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; display: flex; flex-direction: column; gap: 12px; }
+.field { display: flex; align-items: flex-start; gap: 10px; }
+.field input[type="checkbox"], .field input[type="radio"] { margin-top: 3px; accent-color: var(--accent); }
+.field label { display: flex; flex-direction: column; gap: 2px; }
+.field small { color: var(--muted); }
+.sites { display: flex; flex-direction: column; gap: 6px; }
+.site { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px solid var(--border); }
+.site:last-child { border-bottom: 0; }
+.add { display: flex; gap: 8px; }
+.add input { flex: 1; font: inherit; padding: 6px 8px; border-radius: 6px; border: 1px solid var(--border); background: transparent; color: var(--fg); }
+button { font: inherit; padding: 6px 10px; border-radius: 6px; border: 1px solid var(--border); background: transparent; color: var(--fg); cursor: pointer; }
+button:hover { border-color: var(--accent); }
+button:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+button.danger:hover { border-color: #dc2626; color: #dc2626; }
+table { border-collapse: collapse; font-size: 14px; }
+td { padding: 3px 12px 3px 0; }
+td:first-child { color: var(--muted); }
+.muted { color: var(--muted); font-size: 13px; }
+a { color: var(--accent); }
