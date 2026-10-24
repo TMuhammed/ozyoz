@@ -1,6 +1,6 @@
 [workspace]
 resolver = "2"
-members = ["crates/ozyoz-core", "crates/ozyoz-typing"]
+members = ["crates/ozyoz-core", "crates/ozyoz-typing", "crates/ozyoz-input", "desktop/src-tauri"]
 
 [workspace.package]
 version = "0.1.0"

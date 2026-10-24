@@ -9,3 +9,10 @@ playwright-report/
 release/
 dist-safari/
 target/
+desktop/node_modules/
+desktop/dist/
+desktop/src-tauri/gen/
+desktop/src-tauri/target/
+safari/Ozyoz/build/
+*.xcuserstate
+xcuserdata/

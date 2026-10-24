@@ -9,7 +9,15 @@ See [docs/ruleset.md](docs/ruleset.md) for the verified source and every rule,
 and [docs/browser-behaviour.md](docs/browser-behaviour.md) for how editing,
 undo, paste and IME are handled.
 
-Works in Chrome, Microsoft Edge and Yandex Browser (one Chromium build).
+Three products share one engine and one verified ruleset:
+
+| | Status | Docs |
+|---|---|---|
+| Browser extension for Chrome, Edge, Yandex Browser (Chromium build) | ready, tested | this file, [docs/browser-behaviour.md](docs/browser-behaviour.md) |
+| Safari extension (macOS app wrapper) | builds, needs manual Safari testing | [docs/safari.md](docs/safari.md) |
+| Desktop app for macOS, Windows, Linux (system-wide typing) | macOS built; Windows/Linux compile-checked, built by CI | [docs/desktop.md](docs/desktop.md) |
+
+Publication steps for every channel: [docs/release-plan.md](docs/release-plan.md).
 
 ## Install (development mode)
 
@@ -30,14 +38,22 @@ on the extension card.
 ## Project layout
 
 ```
-src/core/       pure conversion engine — no DOM, no browser APIs
-src/browser/    content script, input/contenteditable adapters, site policy, background worker
-src/popup/      toolbar popup (React)
-src/options/    settings page (React)
-src/shared/     settings model and chrome.storage adapter
-tests/unit/     Vitest (fixtures in rules/fixtures/)
+rules/              ruleset.json (the verified mapping) + fixtures/ shared by TS and Rust
+src/core/           TypeScript conversion engine — no DOM, no browser APIs
+src/browser/        content script, input/contenteditable adapters, site policy, background worker
+src/popup/          toolbar popup (React)
+src/options/        settings page (React)
+src/shared/         settings model, chrome.storage adapter, support info
+scripts/            build-safari, package (store zip), screenshots
+safari/             Xcode wrapper project for the Safari extension
+crates/ozyoz-core   Rust conversion engine (same fixtures)
+crates/ozyoz-typing keystroke state machine for the desktop app
+crates/ozyoz-input  macOS / Windows / Linux keyboard hooks
+desktop/            Tauri 2 desktop app (tray + settings window)
+tests/unit/         Vitest
 tests/integration/  Playwright, loads dist/ into Chromium
-docs/           ruleset record and browser behaviour notes
+docs/               ruleset record, browser behaviour, safari, desktop, store listing, release plan
+store/              logo, promo tile, screenshots, demo page
 ```
 
 ## Scripts
@@ -49,6 +65,11 @@ docs/           ruleset record and browser behaviour notes
 | `npm run test:e2e` | integration tests against `dist/` (build first) |
 | `npm run test:all` | unit → build → integration |
 | `npm run typecheck` | strict TypeScript check |
+| `npm run build:safari` | Safari variant to `dist-safari/` |
+| `npm run package` | build + zip for Chrome Web Store / Edge Add-ons |
+| `npm run screenshots` | regenerate store screenshots |
+| `cargo test --workspace` | Rust engine tests against the shared fixtures |
+| `cd desktop && npm run tauri build` | desktop app bundle for the current OS |
 
 ## Permissions
 
