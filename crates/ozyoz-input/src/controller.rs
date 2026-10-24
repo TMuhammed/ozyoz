@@ -2,9 +2,20 @@ use ozyoz_typing::{Decision, EngineOptions, KeyInput, TypingEngine};
 use std::sync::Mutex;
 use std::time::{Duration, Instant};
 
+/// Lifecycle of the platform hook, for the UI.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum HookState {
+    Starting,
+    /// Waiting for the OS permission (macOS Accessibility); retried automatically.
+    WaitingForPermission,
+    Running,
+    Failed(String),
+}
+
 /// Shared, thread-safe state between the platform hook and the UI.
 pub struct Controller {
     inner: Mutex<State>,
+    hook_state: Mutex<HookState>,
 }
 
 struct State {
@@ -14,6 +25,7 @@ struct State {
     excluded_apps: Vec<String>,
     current_app: Option<String>,
     converted_words: u64,
+    events_seen: u64,
 }
 
 /// Read-only view for the UI.
@@ -25,6 +37,9 @@ pub struct Snapshot {
     pub excluded_apps: Vec<String>,
     pub current_app: Option<String>,
     pub converted_words: u64,
+    /// Key events the hook has delivered to the engine (diagnostics).
+    pub events_seen: u64,
+    pub hook_state: HookState,
 }
 
 impl Controller {
@@ -37,8 +52,18 @@ impl Controller {
                 excluded_apps: Vec::new(),
                 current_app: None,
                 converted_words: 0,
+                events_seen: 0,
             }),
+            hook_state: Mutex::new(HookState::Starting),
         }
+    }
+
+    pub fn set_hook_state(&self, state: HookState) {
+        *self.hook_state.lock().unwrap_or_else(|e| e.into_inner()) = state;
+    }
+
+    pub fn hook_state(&self) -> HookState {
+        self.hook_state.lock().unwrap_or_else(|e| e.into_inner()).clone()
     }
 
     pub fn set_enabled(&self, enabled: bool) {
@@ -75,6 +100,8 @@ impl Controller {
             excluded_apps: s.excluded_apps.clone(),
             current_app: s.current_app.clone(),
             converted_words: s.converted_words,
+            events_seen: s.events_seen,
+            hook_state: self.hook_state(),
         }
     }
 
@@ -82,6 +109,7 @@ impl Controller {
     /// application; a change of application resets the current word.
     pub fn handle(&self, app: Option<&str>, input: KeyInput) -> Decision {
         let mut s = self.lock();
+        s.events_seen += 1;
         if s.current_app.as_deref() != app {
             s.current_app = app.map(str::to_owned);
             s.engine.reset();

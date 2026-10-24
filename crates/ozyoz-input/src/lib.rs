@@ -16,7 +16,7 @@ pub mod windows;
 #[cfg(target_os = "linux")]
 pub mod linux;
 
-pub use controller::{Controller, Snapshot};
+pub use controller::{Controller, HookState, Snapshot};
 pub use ozyoz_typing::{Decision, EngineOptions, KeyInput, Mode};
 
 use std::sync::Arc;
@@ -77,6 +77,20 @@ pub fn start(controller: Arc<Controller>) -> Result<(), HookError> {
         })
         .map_err(|e| HookError(e.to_string()))?;
     Ok(())
+}
+
+/// Name of the application that currently holds "secure input" (macOS), which
+/// hides keystrokes from every event tap system-wide. Usually a password field
+/// or a terminal with "Secure Keyboard Entry"; sometimes it gets stuck.
+pub fn secure_input_blocker() -> Option<String> {
+    #[cfg(target_os = "macos")]
+    {
+        macos::secure_input_blocker()
+    }
+    #[cfg(not(target_os = "macos"))]
+    {
+        None
+    }
 }
 
 /// Human-readable name of the application that owns the keyboard focus, as

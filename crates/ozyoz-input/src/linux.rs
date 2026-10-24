@@ -3,7 +3,7 @@
 //! swallowed, so the user briefly sees `sh` before it becomes `ş` — the same
 //! visual behaviour as the browser extension. Wayland is not supported.
 
-use crate::{Controller, Decision, KeyInput, Permission};
+use crate::{Controller, Decision, HookState, KeyInput, Permission};
 use std::sync::Arc;
 use x11rb::connection::Connection;
 use x11rb::protocol::record::{self, ConnectionExt as _};
@@ -166,7 +166,9 @@ impl Injector {
 
 pub fn run(controller: Arc<Controller>) -> Result<(), String> {
     if check_permission() != Permission::Granted {
-        return Err("X11 session required (Wayland is not supported)".into());
+        let msg = "X11 session required (Wayland is not supported)".to_string();
+        controller.set_hook_state(HookState::Failed(msg.clone()));
+        return Err(msg);
     }
     let (ctrl_conn, _) = RustConnection::connect(None).map_err(|e| e.to_string())?;
     let (data_conn, _) = RustConnection::connect(None).map_err(|e| e.to_string())?;
@@ -186,6 +188,7 @@ pub fn run(controller: Arc<Controller>) -> Result<(), String> {
         .map_err(|e| e.to_string())?;
     let cookie = data_conn.record_enable_context(rc).map_err(|e| e.to_string())?;
     log::info!("X11 RECORD context enabled");
+    controller.set_hook_state(HookState::Running);
 
     let mut injected_pending = 0usize; // our own fake events come back through RECORD
     for reply in cookie {

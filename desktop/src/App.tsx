@@ -18,6 +18,11 @@ interface Status {
   platform: string;
   currentApp: string | null;
   convertedWords: number;
+  eventsSeen: number;
+  hook: 'starting' | 'waitingForPermission' | 'running' | 'failed';
+  hookDetail: string | null;
+  secureInputApp: string | null;
+  logFile: string;
   rulesVersion: string;
   lawNumber: string;
   effectiveOn: string;
@@ -65,9 +70,13 @@ export function App() {
     setNewApp('');
   };
 
-  const active = s.enabled && !st.pausedSecondsLeft && st.permission !== 'denied';
+  const active = s.enabled && !st.pausedSecondsLeft && st.permission !== 'denied' && st.hook === 'running' && !st.secureInputApp;
   const statusText = st.permission === 'denied'
     ? 'Ruxsat yöq'
+    : st.hook !== 'running'
+      ? 'Ulanmoqda…'
+      : st.secureInputApp
+        ? 'Bloklangan'
     : !s.enabled
       ? 'Öçirilgan'
       : st.pausedSecondsLeft
@@ -102,6 +111,19 @@ export function App() {
               <span>Linuxda Özyoz faqat X11 seansida işlaydi (Wayland emas). Kiriş oynasida X11 ni tanlang.</span>
             </>
           )}
+        </div>
+      )}
+
+      {st.permission !== 'denied' && st.hook === 'failed' && (
+        <div className="warn">
+          <strong>Klaviatura kuzatuvi işga tuşmadi.</strong>
+          <span>{st.hookDetail}. Dastur har 5 soniyada qayta urinadi. Log: {st.logFile}</span>
+        </div>
+      )}
+      {st.secureInputApp && (
+        <div className="warn">
+          <strong>«{st.secureInputApp}» xavfsiz kiritiş rejimini yoqqan.</strong>
+          <span>macOS bu rejimda klaviaturani heç kimga körsatmaydi, şuning uçun Özyoz işlamaydi. Odatda bu parol maydoni yoki Terminal → «Secure Keyboard Entry». Öşa dasturni yoping yoki rejimni öçiring.</span>
         </div>
       )}
 
@@ -173,7 +195,8 @@ export function App() {
           Qonun {st.lawNumber}, kuçga kiradi {st.effectiveOn}. Qoidalar versiyasi {st.rulesVersion}.{' '}
           <a href="#" onClick={(e) => { e.preventDefault(); void openUrl(st.lawUrl); }}>lex.uz</a>
         </span>
-        <span className="muted">Ötkazilgan sözlar (şu seansda): {st.convertedWords}. Yozilgan matn heç qayerga yuborilmaydi va saqlanmaydi.</span>
+        <span className="muted">Ötkazilgan sözlar (şu seansda): {st.convertedWords}. Körilgan klaviatura hodisalari: {st.eventsSeen}. Yozilgan matn heç qayerga yuborilmaydi va saqlanmaydi.</span>
+        <span className="muted">Holat: {st.hook}{st.currentApp ? ` · oxirgi dastur: ${st.currentApp}` : ''} · log: {st.logFile}</span>
       </section>
     </div>
   );

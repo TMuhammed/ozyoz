@@ -1,7 +1,7 @@
 //! macOS: CGEventTap at session level. Needs Accessibility permission
 //! (System Settings → Privacy & Security → Accessibility).
 
-use crate::{utf16_chunks, Controller, Decision, KeyInput, Permission};
+use crate::{utf16_chunks, Controller, Decision, HookState, KeyInput, Permission};
 use core_foundation::base::TCFType;
 use foreign_types::ForeignType;
 use core_foundation::boolean::CFBoolean;
@@ -71,6 +71,19 @@ fn app_name_for_pid(pid: i64) -> Option<String> {
     path.rsplit('/').next().map(str::to_owned)
 }
 
+pub fn secure_input_blocker() -> Option<String> {
+    if !unsafe { IsSecureEventInputEnabled() } {
+        return None;
+    }
+    let out = std::process::Command::new("/usr/sbin/ioreg").args(["-l", "-d", "1", "-w", "0"]).output().ok()?;
+    let text = String::from_utf8_lossy(&out.stdout);
+    let pid = text
+        .split("kCGSSessionSecureInputPID\"=")
+        .nth(1)
+        .and_then(|rest| rest.chars().take_while(|c| c.is_ascii_digit()).collect::<String>().parse::<i64>().ok());
+    Some(pid.and_then(app_name_for_pid).unwrap_or_else(|| "noma'lum dastur".into()))
+}
+
 pub fn frontmost_app() -> Option<String> {
     // Without AppKit bindings we only know the app when a key arrives; the
     // controller remembers it. Kept for API symmetry.
@@ -107,7 +120,27 @@ fn inject(proxy: CGEventTapProxy, backspaces: usize, insert: &str) {
 }
 
 pub fn run(controller: Arc<Controller>) -> Result<(), String> {
+    loop {
+        if check_permission(false) != Permission::Granted {
+            controller.set_hook_state(HookState::WaitingForPermission);
+            std::thread::sleep(Duration::from_secs(2));
+            continue;
+        }
+        match run_once(controller.clone()) {
+            Ok(()) => return Ok(()),
+            Err(e) => {
+                log::error!("event tap failed: {e}; retrying in 5s");
+                controller.set_hook_state(HookState::Failed(e));
+                std::thread::sleep(Duration::from_secs(5));
+            }
+        }
+    }
+}
+
+fn run_once(controller: Arc<Controller>) -> Result<(), String> {
     let disabled = Arc::new(AtomicBool::new(false));
+    let seen = Arc::new(AtomicBool::new(false));
+    let seen_cb = seen.clone();
     let disabled_cb = disabled.clone();
     let ctl = controller.clone();
 
@@ -126,6 +159,9 @@ pub fn run(controller: Arc<Controller>) -> Result<(), String> {
         }
         if event.get_integer_value_field(EventField::EVENT_SOURCE_USER_DATA) == MAGIC {
             return CallbackResult::Keep;
+        }
+        if !seen_cb.swap(true, Ordering::Relaxed) {
+            log::info!("first key event received by the tap");
         }
         if unsafe { IsSecureEventInputEnabled() } {
             ctl.reset_word();
@@ -184,6 +220,7 @@ pub fn run(controller: Arc<Controller>) -> Result<(), String> {
     let run_loop = CFRunLoop::get_current();
     run_loop.add_source(&source, unsafe { kCFRunLoopDefaultMode });
     tap.enable();
+    controller.set_hook_state(HookState::Running);
     log::info!("macOS event tap enabled");
     loop {
         CFRunLoop::run_in_mode(unsafe { kCFRunLoopDefaultMode }, Duration::from_secs(1), false);

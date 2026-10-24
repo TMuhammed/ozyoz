@@ -2,7 +2,7 @@
 //! No special permission is needed, but elevated (admin) windows do not
 //! receive injected input from a non-elevated process.
 
-use crate::{utf16_chunks, Controller, Decision, KeyInput, Permission};
+use crate::{utf16_chunks, Controller, Decision, HookState, KeyInput, Permission};
 use std::sync::{Arc, OnceLock};
 use windows::Win32::Foundation::{HWND, LPARAM, LRESULT, WPARAM};
 use windows::Win32::System::LibraryLoader::GetModuleHandleW;
@@ -130,11 +130,13 @@ unsafe extern "system" fn hook_proc(code: i32, wparam: WPARAM, lparam: LPARAM) -
 }
 
 pub fn run(controller: Arc<Controller>) -> Result<(), String> {
-    let _ = CONTROLLER.set(controller);
+    let _ = CONTROLLER.set(controller.clone());
     unsafe {
         let hmod = GetModuleHandleW(None).map_err(|e| e.to_string())?;
-        let hook: HHOOK = SetWindowsHookExW(WH_KEYBOARD_LL, Some(hook_proc), Some(hmod.into()), 0).map_err(|e| e.to_string())?;
+        let hook: HHOOK = SetWindowsHookExW(WH_KEYBOARD_LL, Some(hook_proc), Some(hmod.into()), 0)
+            .map_err(|e| { controller.set_hook_state(HookState::Failed(e.to_string())); e.to_string() })?;
         log::info!("Windows keyboard hook installed on thread {}", GetCurrentThreadId());
+        if let Some(c) = CONTROLLER.get() { c.set_hook_state(HookState::Running); }
         let mut msg = MSG::default();
         while GetMessageW(&mut msg, None, 0, 0).as_bool() {
             let _ = TranslateMessage(&msg);

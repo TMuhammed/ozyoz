@@ -1,6 +1,6 @@
 mod settings;
 
-use ozyoz_input::{Controller, Permission};
+use ozyoz_input::{Controller, HookState, Permission};
 use serde::Serialize;
 use settings::{settings_path, Settings};
 use std::path::PathBuf;
@@ -15,6 +15,7 @@ struct AppState {
     controller: Arc<Controller>,
     settings: Mutex<Settings>,
     settings_file: PathBuf,
+    log_file: PathBuf,
     tray: Mutex<Option<TrayIcon>>,
     enabled_item: Mutex<Option<CheckMenuItem<tauri::Wry>>>,
 }
@@ -28,6 +29,11 @@ struct Status {
     platform: String,
     current_app: Option<String>,
     converted_words: u64,
+    events_seen: u64,
+    hook: String,
+    hook_detail: Option<String>,
+    secure_input_app: Option<String>,
+    log_file: String,
     rules_version: String,
     law_number: String,
     effective_on: String,
@@ -71,6 +77,12 @@ fn set_settings(app: AppHandle, state: State<AppState>, settings: Settings) -> R
 fn get_status(state: State<AppState>) -> Status {
     let snap = state.controller.snapshot();
     let rules = ozyoz_core::ruleset();
+    let (hook, hook_detail) = match snap.hook_state {
+        HookState::Starting => ("starting", None),
+        HookState::WaitingForPermission => ("waitingForPermission", None),
+        HookState::Running => ("running", None),
+        HookState::Failed(e) => ("failed", Some(e)),
+    };
     Status {
         enabled: snap.enabled,
         paused_seconds_left: snap.paused_seconds_left,
@@ -78,6 +90,11 @@ fn get_status(state: State<AppState>) -> Status {
         platform: std::env::consts::OS.into(),
         current_app: snap.current_app,
         converted_words: snap.converted_words,
+        events_seen: snap.events_seen,
+        hook: hook.into(),
+        hook_detail,
+        secure_input_app: ozyoz_input::secure_input_blocker(),
+        log_file: state.log_file.display().to_string(),
         rules_version: rules.version.clone(),
         law_number: rules.source.number.clone(),
         effective_on: rules.source.effective_on.clone(),
@@ -137,14 +154,25 @@ fn show_main(app: &AppHandle) {
     }
 }
 
-pub fn run() {
-    env_logger::Builder::from_env(env_logger::Env::default().default_filter_or("info")).init();
+fn init_logging(log_dir: &std::path::Path) -> PathBuf {
+    let _ = std::fs::create_dir_all(log_dir);
+    let path = log_dir.join("ozyoz.log");
+    let mut builder = env_logger::Builder::from_env(env_logger::Env::default().default_filter_or("info"));
+    if let Ok(file) = std::fs::OpenOptions::new().create(true).append(true).open(&path) {
+        builder.target(env_logger::Target::Pipe(Box::new(file)));
+    }
+    let _ = builder.try_init();
+    log::info!("Özyoz {} starting", env!("CARGO_PKG_VERSION"));
+    path
+}
 
+pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_opener::init())
         .plugin(tauri_plugin_autostart::init(tauri_plugin_autostart::MacosLauncher::LaunchAgent, None))
         .setup(|app| {
             let config_dir = app.path().app_config_dir().expect("config dir");
+            let log_file = init_logging(&app.path().app_log_dir().unwrap_or_else(|_| config_dir.clone()));
             let settings_file = settings_path(config_dir);
             let settings = Settings::load(&settings_file);
 
@@ -200,6 +228,7 @@ pub fn run() {
                 controller,
                 settings: Mutex::new(settings),
                 settings_file,
+                log_file,
                 tray: Mutex::new(Some(tray)),
                 enabled_item: Mutex::new(Some(enabled_item)),
             });
