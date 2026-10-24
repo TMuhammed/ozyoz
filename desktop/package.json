@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "tsc --noEmit -p tsconfig.json && vite build",
     "tauri": "tauri",
-    "dmg": "sh ../scripts/dmg.sh"
+    "dmg": "sh ../scripts/dmg.sh",
+    "sign": "sh ../scripts/sign-mac.sh",
+    "mac": "npm run tauri build -- --bundles app && npm run sign && npm run dmg"
   },
   "devDependencies": {
     "@tauri-apps/cli": "^2.12.4",

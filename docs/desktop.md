@@ -84,9 +84,29 @@ cargo check -p ozyoz-input --target x86_64-unknown-linux-gnu
    the next launch).
 3. Type `shahar` anywhere. You should get `şahar`.
 
-If the app is rebuilt, macOS may ask for Accessibility again because the
-binary's signature changed; signed and notarized builds do not have this
-problem.
+**Signing matters for Accessibility.** macOS ties the Accessibility grant to
+the app's code signature. An ad-hoc signed build (the default when no identity
+is configured) gets a new signature on every rebuild, and the grant silently
+stops applying: the app still shows as enabled in System Settings, but
+`AXIsProcessTrusted` stays false and the event tap is never created. The
+settings window shows this as «Ulanmoqda…» / hook state `waitingForPermission`.
+
+Fix: sign with any stable identity, even a free "Apple Development"
+certificate from Xcode:
+
+```bash
+security find-identity -v -p codesigning          # pick an identity
+cd desktop
+APPLE_SIGNING_IDENTITY="Apple Development: you@example.com (TEAMID)" npm run mac
+#   = tauri build --bundles app  →  codesign  →  hdiutil dmg
+```
+
+After the first signed build, toggle Özyoz off and on once in Accessibility.
+Later rebuilds with the same identity keep the grant.
+
+Diagnostics: the settings window shows the hook state, the number of key
+events seen by the tap and which app holds "secure input" if any; the log is
+at `~/Library/Logs/uz.ozyoz.desktop/ozyoz.log`.
 
 ## Known limitations
 
