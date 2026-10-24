@@ -9,6 +9,8 @@ See [docs/ruleset.md](docs/ruleset.md) for the verified source and every rule,
 and [docs/browser-behaviour.md](docs/browser-behaviour.md) for how editing,
 undo, paste and IME are handled.
 
+Repository: https://github.com/TMuhammed/ozyoz · Privacy policy: [PRIVACY.md](PRIVACY.md)
+
 Three products share one engine and one verified ruleset:
 
 | | Status | Docs |

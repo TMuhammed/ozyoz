@@ -68,7 +68,8 @@ Kalit soʻzlar (qidiruv uchun): o'zbek alifbosi, yangi alifbo, lotin alifbosi, k
   - Host permission `<all_urls>` (content script) — conversion must run in text fields on any site the user types on; the script reads only the field being edited and sends nothing.
 - Remote code: none.
 - Data usage: no data collected. Tick "does not collect" for every category.
-- Privacy policy URL: host `PRIVACY.md` publicly (e.g. GitHub repository or GitHub Pages) and paste the URL.
+- Privacy policy URL: https://github.com/TMuhammed/ozyoz/blob/main/PRIVACY.md
+- Homepage / support URL: https://github.com/TMuhammed/ozyoz
 
 ## Assets
 
@@ -82,6 +83,6 @@ Kalit soʻzlar (qidiruv uchun): o'zbek alifbosi, yangi alifbo, lotin alifbosi, k
 
 - [ ] `npm run test:all` passes
 - [ ] Tested manually in Chrome, Edge and Yandex Browser on: Gmail, Telegram Web, Facebook, a Google Form, a site with React inputs
-- [ ] `PRIVACY.md` hosted at a public URL
+- [ ] `PRIVACY.md` public at https://github.com/TMuhammed/ozyoz/blob/main/PRIVACY.md (after the first push)
 - [ ] Version in `manifest.json` bumped for every new upload
 - [ ] Zip uploaded from `release/`

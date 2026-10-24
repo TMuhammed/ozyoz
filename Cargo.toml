@@ -6,7 +6,7 @@ members = ["crates/ozyoz-core", "crates/ozyoz-typing", "crates/ozyoz-input", "de
 version = "0.1.0"
 edition = "2021"
 license = "MIT"
-repository = "https://github.com/ozyoz/ozyoz"
+repository = "https://github.com/TMuhammed/ozyoz"
 
 [workspace.dependencies]
 serde = { version = "1", features = ["derive"] }

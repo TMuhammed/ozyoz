@@ -5,7 +5,7 @@ account, a payment or a manual check that only the owner can do.
 
 ## 0. Before anything
 
-- [ ] **you:** put `PRIVACY.md` at a public URL (push this repo to GitHub, or GitHub Pages). Every store asks for it.
+- [ ] **you:** push this repo to GitHub as `TMuhammed/ozyoz` (public). `PRIVACY.md` then lives at https://github.com/TMuhammed/ozyoz/blob/main/PRIVACY.md — every store asks for it.
 - [ ] **you:** create the Telegram channel for support/feedback and put its link into `src/shared/support.ts` (`telegramUrl`) and `donateUrl` if you want the card published through a link instead of in the app.
 - [ ] Run the full check: `npm run test:all && cargo test --workspace`.
 - [ ] Bump versions together: `manifest.json`, `package.json`, `desktop/src-tauri/tauri.conf.json`, `desktop/src-tauri/Cargo.toml` (workspace version), Safari Info.plists. Tag `v0.1.0`.

@@ -14,7 +14,7 @@ export const SUPPORT = {
   /** Telegram channel or chat for feedback. */
   telegramUrl: '',
   /** Source code / issue tracker. */
-  repoUrl: '',
+  repoUrl: 'https://github.com/TMuhammed/ozyoz',
 };
 
 export function formatCard(digits: string): string {
