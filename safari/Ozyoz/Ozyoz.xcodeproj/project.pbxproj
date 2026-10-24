@@ -1,0 +1,617 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		190CB9CA308CE0F70009A13D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190CB9C9308CE0F70009A13D /* AppDelegate.swift */; };
+		190CB9CE308CE0F70009A13D /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 190CB9CC308CE0F70009A13D /* Main.html */; };
+		190CB9D0308CE0F70009A13D /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CB9CF308CE0F70009A13D /* Icon.png */; };
+		190CB9D2308CE0F70009A13D /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = 190CB9D1308CE0F70009A13D /* Style.css */; };
+		190CB9D4308CE0F70009A13D /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = 190CB9D3308CE0F70009A13D /* Script.js */; };
+		190CB9D6308CE0F70009A13D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190CB9D5308CE0F70009A13D /* ViewController.swift */; };
+		190CB9D9308CE0F70009A13D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 190CB9D7308CE0F70009A13D /* Main.storyboard */; };
+		190CB9DB308CE0F80009A13D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 190CB9DA308CE0F80009A13D /* Assets.xcassets */; };
+		190CB9E2308CE0F80009A13D /* Ozyoz Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 190CB9E1308CE0F80009A13D /* Ozyoz Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		190CB9E7308CE0F80009A13D /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190CB9E6308CE0F80009A13D /* SafariWebExtensionHandler.swift */; };
+		190CB9F9308CE0F80009A13D /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = 190CB9F3308CE0F80009A13D /* background.js */; };
+		190CB9FA308CE0F80009A13D /* icons in Resources */ = {isa = PBXBuildFile; fileRef = 190CB9F4308CE0F80009A13D /* icons */; };
+		190CB9FB308CE0F80009A13D /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 190CB9F5308CE0F80009A13D /* manifest.json */; };
+		190CB9FC308CE0F80009A13D /* content-script.js in Resources */ = {isa = PBXBuildFile; fileRef = 190CB9F6308CE0F80009A13D /* content-script.js */; };
+		190CB9FD308CE0F80009A13D /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 190CB9F7308CE0F80009A13D /* assets */; };
+		190CB9FE308CE0F80009A13D /* src in Resources */ = {isa = PBXBuildFile; fileRef = 190CB9F8308CE0F80009A13D /* src */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		190CB9E3308CE0F80009A13D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 190CB9BE308CE0F70009A13D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 190CB9E0308CE0F80009A13D;
+			remoteInfo = "Ozyoz Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		190CB9EE308CE0F80009A13D /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				190CB9E2308CE0F80009A13D /* Ozyoz Extension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		190CB9C6308CE0F70009A13D /* Ozyoz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ozyoz.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		190CB9C9308CE0F70009A13D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		190CB9CD308CE0F70009A13D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = Base.lproj/Main.html; sourceTree = "<group>"; };
+		190CB9CF308CE0F70009A13D /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		190CB9D1308CE0F70009A13D /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
+		190CB9D3308CE0F70009A13D /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
+		190CB9D5308CE0F70009A13D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		190CB9D8308CE0F70009A13D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		190CB9DA308CE0F80009A13D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		190CB9DC308CE0F80009A13D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		190CB9E1308CE0F80009A13D /* Ozyoz Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Ozyoz Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		190CB9E6308CE0F80009A13D /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
+		190CB9E8308CE0F80009A13D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		190CB9F3308CE0F80009A13D /* background.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = background.js; path = "../../../dist-safari/background.js"; sourceTree = "<group>"; };
+		190CB9F4308CE0F80009A13D /* icons */ = {isa = PBXFileReference; lastKnownFileType = folder; name = icons; path = "../../../dist-safari/icons"; sourceTree = "<group>"; };
+		190CB9F5308CE0F80009A13D /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = "../../../dist-safari/manifest.json"; sourceTree = "<group>"; };
+		190CB9F6308CE0F80009A13D /* content-script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = "content-script.js"; path = "../../../dist-safari/content-script.js"; sourceTree = "<group>"; };
+		190CB9F7308CE0F80009A13D /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = assets; path = "../../../dist-safari/assets"; sourceTree = "<group>"; };
+		190CB9F8308CE0F80009A13D /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; name = src; path = "../../../dist-safari/src"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		190CB9C3308CE0F70009A13D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		190CB9DE308CE0F80009A13D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		190CB9BD308CE0F70009A13D = {
+			isa = PBXGroup;
+			children = (
+				190CB9C8308CE0F70009A13D /* Ozyoz */,
+				190CB9E5308CE0F80009A13D /* Ozyoz Extension */,
+				190CB9C7308CE0F70009A13D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		190CB9C7308CE0F70009A13D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				190CB9C6308CE0F70009A13D /* Ozyoz.app */,
+				190CB9E1308CE0F80009A13D /* Ozyoz Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		190CB9C8308CE0F70009A13D /* Ozyoz */ = {
+			isa = PBXGroup;
+			children = (
+				190CB9C9308CE0F70009A13D /* AppDelegate.swift */,
+				190CB9D5308CE0F70009A13D /* ViewController.swift */,
+				190CB9D7308CE0F70009A13D /* Main.storyboard */,
+				190CB9DA308CE0F80009A13D /* Assets.xcassets */,
+				190CB9DC308CE0F80009A13D /* Info.plist */,
+				190CB9CB308CE0F70009A13D /* Resources */,
+			);
+			path = Ozyoz;
+			sourceTree = "<group>";
+		};
+		190CB9CB308CE0F70009A13D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				190CB9CC308CE0F70009A13D /* Main.html */,
+				190CB9CF308CE0F70009A13D /* Icon.png */,
+				190CB9D1308CE0F70009A13D /* Style.css */,
+				190CB9D3308CE0F70009A13D /* Script.js */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		190CB9E5308CE0F80009A13D /* Ozyoz Extension */ = {
+			isa = PBXGroup;
+			children = (
+				190CB9F2308CE0F80009A13D /* Resources */,
+				190CB9E6308CE0F80009A13D /* SafariWebExtensionHandler.swift */,
+				190CB9E8308CE0F80009A13D /* Info.plist */,
+			);
+			path = "Ozyoz Extension";
+			sourceTree = "<group>";
+		};
+		190CB9F2308CE0F80009A13D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				190CB9F3308CE0F80009A13D /* background.js */,
+				190CB9F4308CE0F80009A13D /* icons */,
+				190CB9F5308CE0F80009A13D /* manifest.json */,
+				190CB9F6308CE0F80009A13D /* content-script.js */,
+				190CB9F7308CE0F80009A13D /* assets */,
+				190CB9F8308CE0F80009A13D /* src */,
+			);
+			name = Resources;
+			path = "Ozyoz Extension";
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		190CB9C5308CE0F70009A13D /* Ozyoz */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 190CB9EF308CE0F80009A13D /* Build configuration list for PBXNativeTarget "Ozyoz" */;
+			buildPhases = (
+				190CB9C2308CE0F70009A13D /* Sources */,
+				190CB9C3308CE0F70009A13D /* Frameworks */,
+				190CB9C4308CE0F70009A13D /* Resources */,
+				190CB9EE308CE0F80009A13D /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				190CB9E4308CE0F80009A13D /* PBXTargetDependency */,
+			);
+			name = Ozyoz;
+			packageProductDependencies = (
+			);
+			productName = Ozyoz;
+			productReference = 190CB9C6308CE0F70009A13D /* Ozyoz.app */;
+			productType = "com.apple.product-type.application";
+		};
+		190CB9E0308CE0F80009A13D /* Ozyoz Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 190CB9EB308CE0F80009A13D /* Build configuration list for PBXNativeTarget "Ozyoz Extension" */;
+			buildPhases = (
+				190CB9DD308CE0F80009A13D /* Sources */,
+				190CB9DE308CE0F80009A13D /* Frameworks */,
+				190CB9DF308CE0F80009A13D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Ozyoz Extension";
+			packageProductDependencies = (
+			);
+			productName = "Ozyoz Extension";
+			productReference = 190CB9E1308CE0F80009A13D /* Ozyoz Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		190CB9BE308CE0F70009A13D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2640;
+				LastUpgradeCheck = 2640;
+				TargetAttributes = {
+					190CB9C5308CE0F70009A13D = {
+						CreatedOnToolsVersion = 26.4.1;
+					};
+					190CB9E0308CE0F80009A13D = {
+						CreatedOnToolsVersion = 26.4.1;
+					};
+				};
+			};
+			buildConfigurationList = 190CB9C1308CE0F70009A13D /* Build configuration list for PBXProject "Ozyoz" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 190CB9BD308CE0F70009A13D;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 190CB9C7308CE0F70009A13D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				190CB9C5308CE0F70009A13D /* Ozyoz */,
+				190CB9E0308CE0F80009A13D /* Ozyoz Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		190CB9C4308CE0F70009A13D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				190CB9D0308CE0F70009A13D /* Icon.png in Resources */,
+				190CB9D9308CE0F70009A13D /* Main.storyboard in Resources */,
+				190CB9D4308CE0F70009A13D /* Script.js in Resources */,
+				190CB9CE308CE0F70009A13D /* Main.html in Resources */,
+				190CB9DB308CE0F80009A13D /* Assets.xcassets in Resources */,
+				190CB9D2308CE0F70009A13D /* Style.css in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		190CB9DF308CE0F80009A13D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				190CB9FD308CE0F80009A13D /* assets in Resources */,
+				190CB9F9308CE0F80009A13D /* background.js in Resources */,
+				190CB9FC308CE0F80009A13D /* content-script.js in Resources */,
+				190CB9FE308CE0F80009A13D /* src in Resources */,
+				190CB9FB308CE0F80009A13D /* manifest.json in Resources */,
+				190CB9FA308CE0F80009A13D /* icons in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		190CB9C2308CE0F70009A13D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				190CB9D6308CE0F70009A13D /* ViewController.swift in Sources */,
+				190CB9CA308CE0F70009A13D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		190CB9DD308CE0F80009A13D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				190CB9E7308CE0F80009A13D /* SafariWebExtensionHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		190CB9E4308CE0F80009A13D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 190CB9E0308CE0F80009A13D /* Ozyoz Extension */;
+			targetProxy = 190CB9E3308CE0F80009A13D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		190CB9CC308CE0F70009A13D /* Main.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				190CB9CD308CE0F70009A13D /* Base */,
+			);
+			name = Main.html;
+			sourceTree = "<group>";
+		};
+		190CB9D7308CE0F70009A13D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				190CB9D8308CE0F70009A13D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		190CB9E9308CE0F80009A13D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		190CB9EA308CE0F80009A13D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		190CB9EC308CE0F80009A13D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Ozyoz Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Ozyoz Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = uz.ozyoz.app.Extension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		190CB9ED308CE0F80009A13D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Ozyoz Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Ozyoz Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = uz.ozyoz.app.Extension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		190CB9F0308CE0F80009A13D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Ozyoz/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Ozyoz;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = uz.ozyoz.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		190CB9F1308CE0F80009A13D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Ozyoz/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Ozyoz;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = uz.ozyoz.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		190CB9C1308CE0F70009A13D /* Build configuration list for PBXProject "Ozyoz" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				190CB9E9308CE0F80009A13D /* Debug */,
+				190CB9EA308CE0F80009A13D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		190CB9EB308CE0F80009A13D /* Build configuration list for PBXNativeTarget "Ozyoz Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				190CB9EC308CE0F80009A13D /* Debug */,
+				190CB9ED308CE0F80009A13D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		190CB9EF308CE0F80009A13D /* Build configuration list for PBXNativeTarget "Ozyoz" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				190CB9F0308CE0F80009A13D /* Debug */,
+				190CB9F1308CE0F80009A13D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 190CB9BE308CE0F70009A13D /* Project object */;
+}

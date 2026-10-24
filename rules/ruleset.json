@@ -1,0 +1,22 @@
+{
+  "version": "2026.10.21",
+  "source": {
+    "title": "\"Lotin yozuviga asoslangan oʻzbek alifbosini joriy etish toʻgʻrisida\"gi Oʻzbekiston Respublikasi Qonuniga oʻzgartirish kiritish haqida",
+    "number": "O‘RQ-1184",
+    "signedOn": "2026-10-21",
+    "effectiveOn": "2027-04-22",
+    "url": "https://lex.uz/uz/docs/8548754",
+    "verifiedOn": "2026-10-23"
+  },
+  "apostropheLike": ["ʻ", "ʼ", "'", "’", "‘", "`", "´"],
+  "tutuqCanonical": "ʼ",
+  "letterApostrophe": [
+    { "base": "o", "target": "ö" },
+    { "base": "g", "target": "ğ" }
+  ],
+  "digraphs": [
+    { "source": "sh", "target": "ş" },
+    { "source": "ch", "target": "ç" }
+  ],
+  "alphabet": ["A","B","D","E","F","G","Ğ","H","I","J","K","L","M","N","O","Ö","P","Q","R","S","Ş","Ç","T","U","V","X","Y","Z"]
+}

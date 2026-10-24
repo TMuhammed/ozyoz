@@ -1,0 +1,10 @@
+[package]
+name = "ozyoz-typing"
+description = "Keystroke-level conversion state machine used by the desktop app (platform-independent)."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+ozyoz-core = { path = "../ozyoz-core" }

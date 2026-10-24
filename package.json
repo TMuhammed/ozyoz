@@ -1,7 +1,7 @@
 {
   "name": "ozyoz",
   "version": "0.1.0",
-  "description": "\u00d6zyoz \u2014 automatic conversion to the new Uzbek Latin alphabet while typing",
+  "description": "Özyoz — automatic conversion to the new Uzbek Latin alphabet while typing",
   "main": "index.js",
   "scripts": {
     "test": "vitest run",
@@ -12,7 +12,8 @@
     "test:e2e": "playwright test",
     "test:all": "npm run test && npm run build && npm run test:e2e",
     "package": "npm run build && node scripts/package.mjs",
-    "screenshots": "node scripts/screenshots.mjs"
+    "screenshots": "node scripts/screenshots.mjs",
+    "build:safari": "node scripts/build-safari.mjs"
   },
   "keywords": [],
   "author": "",

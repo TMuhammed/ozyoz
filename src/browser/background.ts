@@ -21,6 +21,7 @@ function converted(text: string): string {
   return convertText(text.trim(), { normalizeApostrophes: false, protectUrls: true }).text;
 }
 
+if (typeof chrome.omnibox !== 'undefined' && typeof chrome.search !== 'undefined') {
 chrome.omnibox.setDefaultSuggestion({ description: 'Özyoz: yangi alifboda qidiriş — matn yozing' });
 
 chrome.omnibox.onInputChanged.addListener((text, suggest) => {
@@ -40,3 +41,4 @@ chrome.omnibox.onInputEntered.addListener((text, disposition) => {
   };
   void chrome.search.query({ text: query, disposition: map[disposition] });
 });
+}

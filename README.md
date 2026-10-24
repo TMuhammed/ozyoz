@@ -35,7 +35,7 @@ src/browser/    content script, input/contenteditable adapters, site policy, bac
 src/popup/      toolbar popup (React)
 src/options/    settings page (React)
 src/shared/     settings model and chrome.storage adapter
-tests/unit/     Vitest (fixtures in tests/fixtures/)
+tests/unit/     Vitest (fixtures in rules/fixtures/)
 tests/integration/  Playwright, loads dist/ into Chromium
 docs/           ruleset record and browser behaviour notes
 ```

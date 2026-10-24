@@ -2,7 +2,7 @@
 
 This document records the authoritative source for the conversion rules and every
 mapping the engine applies. Every rule here has a regression test in
-`tests/unit/converter.test.ts` and fixtures in `tests/fixtures/`.
+`tests/unit/converter.test.ts` and fixtures in `rules/fixtures/`.
 
 ## Source
 

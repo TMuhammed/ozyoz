@@ -1,9 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import { convertText, RULESET } from '@/core';
-import words from '../fixtures/words.json';
-import apostrophes from '../fixtures/apostrophes.json';
-import sentences from '../fixtures/sentences.json';
-import protectedTokens from '../fixtures/protected.json';
+import words from '../../rules/fixtures/words.json';
+import apostrophes from '../../rules/fixtures/apostrophes.json';
+import sentences from '../../rules/fixtures/sentences.json';
+import protectedTokens from '../../rules/fixtures/protected.json';
 
 interface Fixture {
   input: string;
