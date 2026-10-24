@@ -41,7 +41,7 @@ export function Support() {
       </div>
       {SUPPORT.cardNumber && (
         <div className="cardnum">
-          <span className="muted">{SUPPORT.cardLabel || 'Karta'}:</span>
+          <span className="muted">{SUPPORT.cardLabel || 'Karta'} hamyoni:</span>
           <code aria-label="Karta raqami">{formatCard(SUPPORT.cardNumber)}</code>
           <button type="button" onClick={() => void copy()}>{copied ? 'Nusxalandi ✓' : 'Nusxalaş'}</button>
         </div>

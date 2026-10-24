@@ -8,9 +8,9 @@ export const SUPPORT = {
   /** Donation page (Tirikchilik, Payme/Click link, Buy Me a Coffee, ...). */
   donateUrl: '',
   /** Dedicated virtual card for donations, digits only. Shown with a copy button. */
-  cardNumber: '',
+  cardNumber: '8801809231336725',
   /** Card system label shown next to the number, e.g. "Humo" or "Uzcard". */
-  cardLabel: '',
+  cardLabel: 'Click',
   /** Telegram channel or chat for feedback. */
   telegramUrl: '',
   /** Source code / issue tracker. */
