@@ -70,6 +70,8 @@ export function App() {
     setNewApp('');
   };
 
+  const cur = st.currentApp?.toLowerCase() ?? '';
+  const excludedNow = cur !== '' && s.excludedApps.some((a) => cur === a.toLowerCase() || cur.endsWith(a.toLowerCase()));
   const active = s.enabled && !st.pausedSecondsLeft && st.permission !== 'denied' && st.hook === 'running' && !st.secureInputApp;
   const statusText = st.permission === 'denied'
     ? 'Ruxsat yöq'
@@ -127,6 +129,18 @@ export function App() {
         </div>
       )}
 
+      {excludedNow && (
+        <div className="warn">
+          <strong>«{st.currentApp}» öçirilgan dasturlar röyxatida.</strong>
+          <span>Şu dasturda yozganingizda harflar ötkazilmaydi. Terminal va kod muharrirlari sukut böyiça röyxatda, çunki u yerda almaştiriş buyruqlar va kodni buzadi.</span>
+          <div className="row">
+            <button className="primary" onClick={() => save({ excludedApps: s.excludedApps.filter((a) => !(cur === a.toLowerCase() || cur.endsWith(a.toLowerCase()))) })}>
+              Şu dasturda yoqiş
+            </button>
+          </div>
+        </div>
+      )}
+
       <section className="card">
         <h2>Ötkaziş</h2>
         <div className="field">
@@ -178,7 +192,7 @@ export function App() {
         <div className="apps">
           {s.excludedApps.map((a) => (
             <div className="app" key={a}>
-              <span>{a}</span>
+              <span>{a}{cur !== '' && (cur === a.toLowerCase() || cur.endsWith(a.toLowerCase())) ? ' · hozirgi' : ''}</span>
               <button onClick={() => save({ excludedApps: s.excludedApps.filter((x) => x !== a) })} aria-label={`${a} ni olib taşlaş`}>Olib taşlaş</button>
             </div>
           ))}
