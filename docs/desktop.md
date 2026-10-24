@@ -52,7 +52,19 @@ npm run tauri build    # bundles into desktop/src-tauri/target/release/bundle/
 ```
 
 Outputs: `.app` + `.dmg` (macOS), `.msi` + NSIS `.exe` (Windows), `.deb`,
-`.rpm`, `.AppImage` (Linux). The GitHub Actions workflow in
+`.rpm`, `.AppImage` (Linux). The workspace `target/` is at the repository
+root, so bundles land in `target/release/bundle/`.
+
+macOS note: Tauri styles the `.dmg` through Finder (AppleScript). From a
+terminal without Automation permission for Finder, or over SSH, that step
+times out after the `.app` is already built. Either grant Terminal
+"Automation → Finder" in Privacy & Security, or build only the app and make a
+plain image yourself:
+
+```bash
+npm run tauri build -- --bundles app
+npm run dmg      # hdiutil wrapper, writes release/Ozyoz_<version>_<arch>.dmg
+``` The GitHub Actions workflow in
 `.github/workflows/desktop.yml` builds all three on every tag `v*`.
 
 Engine tests (shared fixtures) and platform compile checks:
