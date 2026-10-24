@@ -233,8 +233,12 @@ pub fn run() {
                 enabled_item: Mutex::new(Some(enabled_item)),
             });
 
-            // Show the window on first run or when the hook has no permission yet.
-            if first_run || ozyoz_input::check_permission(false) == Permission::Denied {
+            // Show the window on first run or when the hook has no permission yet,
+            // and let macOS show its own Accessibility prompt (adds the app to the list).
+            if ozyoz_input::check_permission(false) == Permission::Denied {
+                let _ = ozyoz_input::check_permission(true);
+                show_main(app.handle());
+            } else if first_run {
                 show_main(app.handle());
             }
             Ok(())
