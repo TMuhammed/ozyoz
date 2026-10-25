@@ -49,8 +49,8 @@ jobs:
           # APPLE_SIGNING_IDENTITY, APPLE_ID, APPLE_PASSWORD, APPLE_TEAM_ID
         with:
           projectPath: desktop
-          tagName: ${{ github.ref_name }}
-          releaseName: 'Özyoz ${{ github.ref_name }}'
+          tagName: ${{ github.event.inputs.tag || github.ref_name }}
+          releaseName: 'Özyoz ${{ github.event.inputs.tag || github.ref_name }}'
           releaseBody: 'See docs/desktop.md for installation notes.'
           releaseDraft: true
           prerelease: false
