@@ -52,7 +52,13 @@ npm run tauri build    # bundles into desktop/src-tauri/target/release/bundle/
 ```
 
 Outputs: `.app` + `.dmg` (macOS), `.msi` + NSIS `.exe` (Windows), `.deb`,
-`.rpm`, `.AppImage` (Linux). The workspace `target/` is at the repository
+`.rpm`, `.AppImage` (Linux). On Linux the package name is the ASCII `Ozyoz`
+(`tauri.linux.conf.json`), because AppImage tooling rejects non-ASCII names;
+the window title and tray still show «Özyoz».
+
+CI builds run on every `v*` tag. To rebuild a release without moving its tag,
+push `vX.Y.Z-build2`, `-build3`, …: the workflow strips the suffix and
+attaches the artifacts to release `vX.Y.Z`. The workspace `target/` is at the repository
 root, so bundles land in `target/release/bundle/`.
 
 macOS note: Tauri styles the `.dmg` through Finder (AppleScript). From a
